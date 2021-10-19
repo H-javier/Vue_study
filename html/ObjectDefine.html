@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TestVue</title>
+    <script type="text/javascript" src="/js/vue.js"></script>
+    
+</head>
+<body>
+   
+    <div id="root">
+    </div>
+    <script type="text/javascript">
+        Vue.config.productionTip = false 
+        let number = 18 
+        let person = {
+            name:'Jav',
+            sex:'男'
+        }
+       /* //传入三个参数 对象 属性名 配置项 此方法添加的属性不能枚举
+        Object.defineProperty(person,'age',{
+            value:21,
+            enumerable:true,  //此方式使属性可以被遍历 默认false
+            writable:true,  //控制属性是否可以被修改 默认false
+            configurable:true,  //控制属性是否可以被删除 默认false吧 
+        })*/
+        Object.defineProperty(person,'age',{
+            //当有人访问person的age属性时get函数就会被调用，返回age的值
+            get(){
+                console.log('age属性值被读取')
+                return number
+            },
+            //当有人修改person的age属性时，set函数会被调用，且会修改具体值
+            set(value){
+                console.log('age属性值被修改，值为',value)
+                number = value
+            }
+        })
+        console.log(person)
+        new Vue({
+            el:'#root', 
+            data:{            
+            }
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>grammar</title>
+    <script type="text/javascript" src="../js/vue.js"></script>
+</head>
+<body>
+    <!--插值用于标签体内容，指令语法用于解析标签属性-->
+    <div id="grammar">
+        <h1>插值语法</h1>
+        <h3>插入的值为{{student.name}}</h3>
+        <hr/>
+        <h1>指令语法</h1>
+        <!--v-bind===>:简写表达式绑定链接-->
+        <a :href="student.url">点击访问我的主页</a>
+        <a :href="teacher.url">点击访问叫兽的主页</a>
+    </div>
+    <script type="text/javascript">
+        new Vue({
+            el:'#grammar',
+            data:{
+                student:{
+                name:'jav',
+                url:'https://www.javierzone.top/'
+                },
+                teacher:{
+                    name:'Ylh',
+                    url:'https://www.yeliheng.com/'
+                }
+
+            }
+        })
+    </script>
+</body>
+</html>

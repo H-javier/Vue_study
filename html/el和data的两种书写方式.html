@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TestVue</title>
+    <script type="text/javascript" src="/js/vue.js"></script>
+    
+</head>
+<body>
+    <!--准备一个容器（一个容器只能对应一个实例）-->
+    <div id="root">
+    </div>
+    <script type="text/javascript">
+        Vue.config.productionTip = false //阻止Vue在启动时产生生产提示。
+
+        //两种指定容器方式
+        new Vue({
+            el:'#root', //第一种指定容器方式
+            data:{ //用于存储数据供指定的容器root使用,暂时以对象方式编写
+               
+            }
+        })
+        const v = new Vue({
+            data:{}
+        })
+        v.$mount('#root') //第二种指定容器方式
+        
+        //两种data的写法
+        new Vue({
+            //data的第一种写法，对象式
+            /*data1:{
+                name:'jav'
+            }*/
+            //data的第二种写法，函数式
+            data2(){
+                return{
+                    name:'javier'
+                }
+
+            }
+        })
+    </script>
+</body>
+</html>
